@@ -106,5 +106,5 @@ jobs:
         with:
           name: html-report-${{ env.TARGET }}
           path: |
-            reports/*.html
+            reports/mochawesome/*.html
           if-no-files-found: ignore
