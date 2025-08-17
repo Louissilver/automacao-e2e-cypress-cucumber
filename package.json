@@ -1,0 +1,50 @@
+{
+  "name": "automacao-e2e-cypress-cucumber",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido com Cypress, Cucumber e NodeJS para automação de aplicações end-to-end",
+  "keywords": [
+    "cypress",
+    "cucumber",
+    "automacao",
+    "qa",
+    "e2e"
+  ],
+  "license": "ISC",
+  "author": "Luís Fernando da Silveira",
+  "type": "commonjs",
+  "main": "index.js",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "open:desktop": "dotenv -e .env -e .env.desktop -- cypress open",
+    "open:mobile": "dotenv -e .env -e .env.mobile -- cypress open",
+    "run:desktop": "dotenv -e .env -e .env.desktop -- cypress run",
+    "run:mobile": "dotenv -e .env -e .env.mobile -- cypress run",
+    "prepare": "husky",
+    "preinstall": "npm i -g dotenv-cli"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "cypress": "^14.5.4",
+    "cypress-multi-reporters": "^2.0.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.33.0",
+    "@faker-js/faker": "^9.9.0",
+    "cnpj": "^5.0.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^17.2.1",
+    "eslint-plugin-cypress": "^5.1.1",
+    "gerador-validador-cpf": "^6.3.0",
+    "husky": "^9.1.7",
+    "mocha-junit-reporter": "^2.2.1"
+  }
+}

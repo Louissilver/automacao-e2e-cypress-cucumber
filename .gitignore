@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Cypress output
+cypress/downloads/
+cypress/test-results/
+.cypress-cache/
+.cache/
+cypress/screenshots/
+cypress/videos/
+
+# Environment files
+.env
+.env.desktop
+.env.mobile
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Husky
+
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.swp
