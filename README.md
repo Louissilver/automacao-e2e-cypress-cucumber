@@ -1,6 +1,26 @@
 # Automação E2E com Cypress
 
-Este projeto é um modelo padrão para automação de testes end-to-end (E2E) utilizando o Cypress, com suporte ao Cucumber para escrita de cenários em Gherkin. Ele pode ser adaptado para qualquer tipo de aplicação web.
+## Índice
+
+- [Tags & Badges](#tags--badges)
+- [Configuração de Ambiente (.env)](#configuração-de-ambiente-env)
+- [Principais Pacotes](#principais-pacotes)
+- [Execução em Pipeline (CI/CD)](#execução-em-pipeline-cicd)
+- [Scripts de Relatório](#scripts-de-relatório)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Instalação](#instalação)
+- [Como Executar os Testes](#como-executar-os-testes)
+- [Como Usar](#como-usar)
+- [Adaptação](#adaptação)
+
+## Tags & Badges
+
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Louissilver/automacao-e2e-cypress-cucumber/cypress-e2e.yml?branch=main)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/actions)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/stargazers)
+[![License](https://img.shields.io/github/license/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/blob/main/LICENSE)
 
 ## Configuração de Ambiente (.env)
 
@@ -33,6 +53,41 @@ Adicione outras variáveis conforme a necessidade do seu projeto, como tokens, c
 - **Cypress**: Framework principal para automação de testes E2E.
 - **@badeball/cypress-cucumber-preprocessor**: Permite escrever cenários de teste em Gherkin e integrá-los ao Cypress.
 - **eslint**: Ferramenta para padronização e análise de código JavaScript.
+
+## Execução em Pipeline (CI/CD)
+
+Este projeto possui integração pronta para execução dos testes em pipelines do GitHub Actions. O workflow está localizado em `.github/workflows/cypress-e2e.yml`.
+
+### Como funciona o pipeline
+
+- Executa os testes E2E em ambiente Ubuntu.
+- Permite escolher o alvo de execução (`desktop` ou `mobile`) manualmente ou via push/pull request.
+- Instala dependências, prepara o ambiente e executa os testes conforme o alvo.
+- Gera relatórios HTML dos testes após a execução.
+- Disponibiliza artefatos dos testes (vídeos, screenshots, downloads, resultados e relatórios HTML) para download na interface do GitHub Actions.
+
+### Como acessar os relatórios
+
+Após a execução do pipeline, acesse a aba **Actions** do GitHub, selecione o workflow executado e faça download dos artefatos:
+
+- **cypress-videos-\***: vídeos dos testes.
+- **cypress-screenshots-\***: screenshots dos testes.
+- **cypress-downloads-\***: arquivos baixados durante os testes.
+- **test-results-\***: resultados e relatórios dos testes.
+- **html-report-\***: relatório HTML gerado pelo comando `npm run report`.
+
+## Scripts de Relatório
+
+O comando `npm run report` é responsável por gerar o relatório HTML dos testes. Certifique-se de que este script está configurado no `package.json` e que o relatório é gerado na pasta `reports/`.
+
+Exemplo de configuração no `package.json`:
+
+```json
+"scripts": {
+  ...existing code...
+  "report": "cypress-mochawesome-reporter --reportDir reports"
+}
+```
 
 ## Estrutura do Projeto
 
