@@ -32,7 +32,7 @@ module.exports = defineConfig({
   e2e: {
     reporter: "cypress-multi-reporters",
     reporterOptions: {
-      configFile: "cypress/suport/reporter-config.json",
+      configFile: "cypress/support/reporter-config.json",
     },
     baseUrl: process.env.BASE_URL || "https://demo.automationtesting.in",
     specPattern: "**/*.feature",
