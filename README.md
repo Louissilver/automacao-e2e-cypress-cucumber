@@ -83,8 +83,8 @@ cypress/
 
 1. Clone o repositório:
    ```powershell
-   git clone <url-do-repositorio>
-   cd automacao-e2e-cypress
+   git clone https://github.com/Louissilver/automacao-e2e-cypress-cucumber
+   cd automacao-e2e-cypress-cucumber
    ```
 2. Instale as dependências:
 
