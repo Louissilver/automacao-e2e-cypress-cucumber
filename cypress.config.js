@@ -42,7 +42,7 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     screenshotOnRunFailure: true,
     video: false,
-    viewportWidth: +process.env.VIEWPORT_WIDTH || 1280,
+    viewportWidth: +process.env.VIEWPORT_WIDTH || 1440,
     viewportHeight: +process.env.VIEWPORT_HEIGHT || 720,
     setupNodeEvents,
     retries: { runMode: 1, openMode: 0 },

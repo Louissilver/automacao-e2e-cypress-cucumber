@@ -1,20 +1,19 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
 // Import commands.js using ES2015 syntax:
 import "./commands";
+
+// === Viewport global em todo teste ===
+beforeEach(() => {
+  const preset = Cypress.env("VIEWPORT");
+  const orientation = Cypress.env("ORIENTATION") || "portrait";
+  const width = Number(Cypress.env("VIEWPORT_WIDTH")) || 1366;
+  const height = Number(Cypress.env("VIEWPORT_HEIGHT")) || 768;
+
+  if (preset) {
+    cy.viewport(preset, orientation);
+  } else {
+    cy.viewport(width, height);
+  }
+});
 
 const app = window.top;
 if (!app.document.querySelector("[data-hide-command-log-request]")) {

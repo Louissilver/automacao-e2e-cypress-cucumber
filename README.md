@@ -26,14 +26,12 @@ Cada arquivo pode conter variáveis específicas para o ambiente de execução. 
 
 ```env
 BASE_URL=https://demo.automationtesting.in
-VIEWPORT_WIDTH=1440
-VIEWPORT_HEIGHT=900
 ```
 
 #### .env.desktop
 
 ```env
-VIEWPORT=desktop
+VIEWPORT=macbook-15
 VIEWPORT_WIDTH=1440
 VIEWPORT_HEIGHT=900
 ```
@@ -41,7 +39,7 @@ VIEWPORT_HEIGHT=900
 #### .env.mobile
 
 ```env
-VIEWPORT=mobile
+VIEWPORT=iphone-6+
 VIEWPORT_WIDTH=410
 VIEWPORT_HEIGHT=900
 ```
