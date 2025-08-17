@@ -19,10 +19,10 @@
     }
   },
   "scripts": {
-    "open:desktop": "dotenv -e .env -e .env.desktop -- cypress open",
-    "open:mobile": "dotenv -e .env -e .env.mobile -- cypress open",
-    "run:desktop": "dotenv -e .env -e .env.desktop -- cypress run",
-    "run:mobile": "dotenv -e .env -e .env.mobile -- cypress run",
+    "open:desktop": "cypress open --env VIEWPORT=macbook-15",
+    "open:mobile": "cypress open --env VIEWPORT=iphone-6+",
+    "run:desktop": "cypress run --env VIEWPORT=macbook-15",
+    "run:mobile": "cypress run --env VIEWPORT=iphone-6+",
     "prepare": "husky",
     "preinstall": "npm i -g dotenv-cli"
   },

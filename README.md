@@ -4,7 +4,7 @@ Este projeto é um modelo padrão para automação de testes end-to-end (E2E) ut
 
 ## Configuração de Ambiente (.env)
 
-Este projeto utiliza o pacote `dotenv` para carregar variáveis de ambiente dos arquivos `.env`, `.env.desktop` e `.env.mobile`.
+Este projeto utiliza o pacote `dotenv` para carregar variáveis de ambiente dos arquivos `.env`.
 **Antes de executar os testes, é necessário rodar os comandos abaixo para garantir que o ambiente esteja configurado corretamente:**
 
 ```powershell
@@ -17,31 +17,13 @@ npm run prepare
 Crie os seguintes arquivos na raiz do projeto:
 
 - `.env`
-- `.env.desktop`
-- `.env.mobile`
 
-Cada arquivo pode conter variáveis específicas para o ambiente de execução. Exemplos:
+Cada arquivo pode conter variáveis específicas para o ambiente de execução ou informações sensíveis do ambiente. Exemplos:
 
 #### .env
 
 ```env
-BASE_URL=https://demo.automationtesting.in
-```
-
-#### .env.desktop
-
-```env
-VIEWPORT=macbook-15
-VIEWPORT_WIDTH=1440
-VIEWPORT_HEIGHT=900
-```
-
-#### .env.mobile
-
-```env
-VIEWPORT=iphone-6+
-VIEWPORT_WIDTH=410
-VIEWPORT_HEIGHT=900
+USER_PASSWORD=123456
 ```
 
 Adicione outras variáveis conforme a necessidade do seu projeto, como tokens, credenciais de teste, etc.
@@ -98,7 +80,7 @@ cypress/
 
 ## Como Executar os Testes
 
-Para garantir que os testes utilizem as variáveis corretas de ambiente (como `BASE_URL`), utilize sempre os comandos definidos no `package.json`:
+Para garantir que os testes utilizem as variáveis corretas de ambiente (como `VIEWPORT`), utilize sempre os comandos definidos no `package.json`:
 
 - Para executar os testes em modo desktop:
   ```powershell
@@ -115,7 +97,7 @@ Para garantir que os testes utilizem as variáveis corretas de ambiente (como `B
 
 > **Atenção:**
 > Se você executar comandos simples como `npx cypress open` ou `npx cypress run`, o Cypress não irá carregar as variáveis dos arquivos `.env`.
-> Nesse caso, a configuração de `baseUrl` será definida pelo valor padrão do `cypress.config.js`, que aponta para `http://localhost:3000` e pode não ser o endereço correto da aplicação.
+> Nesse caso, a configuração será definida pelo valor padrão do `cypress.config.js` e pode não ser a configuração correta da aplicação.
 
 ## Como Usar
 

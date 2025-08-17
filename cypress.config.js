@@ -34,7 +34,7 @@ module.exports = defineConfig({
     reporterOptions: {
       configFile: "cypress/suport/reporter-config.json",
     },
-    baseUrl: process.env.BASE_URL || "http://localhost:3000",
+    baseUrl: process.env.BASE_URL || "https://demo.automationtesting.in",
     specPattern: "**/*.feature",
     stepDefinitions: "cypress/support/step_definitions/*.js",
     supportFile: "cypress/support/e2e.js",
