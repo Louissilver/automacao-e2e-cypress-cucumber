@@ -1,0 +1,98 @@
+name: Cypress E2E Tests
+
+on:
+  push:
+    branches: [main, master]
+
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Alvo de execução"
+        type: choice
+        required: false
+        default: desktop
+        options:
+          - desktop
+          - mobile
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cypress-run:
+    name: Run E2E (${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target || 'desktop' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      TARGET: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target || 'desktop' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Prepare environment
+        run: |
+          npm run preinstall
+          npm run prepare
+
+      - name: Run Cypress tests (${{ env.TARGET }})
+        run: |
+          if [ "${TARGET}" = "mobile" ]; then
+            npm run run:mobile
+          else
+            npm run run:desktop
+          fi
+
+      # Artefatos para debug
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos-${{ env.TARGET }}
+          path: |
+            cypress/videos
+            **/cypress/videos
+          if-no-files-found: ignore
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots-${{ env.TARGET }}
+          path: |
+            cypress/screenshots
+            **/cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload downloads
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-downloads-${{ env.TARGET }}
+          path: |
+            cypress/downloads
+            **/cypress/downloads
+          if-no-files-found: ignore
+
+      - name: Upload test results / reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ env.TARGET }}
+          path: |
+            test-results
+            cypress/test-results
+            reports
+            results
+          if-no-files-found: ignore
