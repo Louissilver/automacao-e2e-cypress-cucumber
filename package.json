@@ -24,7 +24,12 @@
     "run:desktop": "cypress run --env VIEWPORT=macbook-15",
     "run:mobile": "cypress run --env VIEWPORT=iphone-6+",
     "prepare": "husky",
-    "preinstall": "npm i -g dotenv-cli"
+    "preinstall": "npm i -g dotenv-cli",
+    "report:clean": "node -e \"try{require('fs').rmSync('cypress/reports',{recursive:true,force:true})}catch(e){}\"",
+    "report:prep": "node -e \"require('fs').mkdirSync('cypress/reports/mochawesome/merged',{recursive:true});\"",
+    "report:merge": "npm run report:prep && mochawesome-merge \"cypress/reports/mochawesome/*.json\" -o cypress/reports/mochawesome/merged/report.json",
+    "report:generate": "marge cypress/reports/mochawesome/merged/report.json --reportDir cypress/reports/mochawesome --reportFilename report.html --inline",
+    "report": "npm run report:merge && npm run report:generate"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
@@ -45,6 +50,9 @@
     "eslint-plugin-cypress": "^5.1.1",
     "gerador-validador-cpf": "^6.3.0",
     "husky": "^9.1.7",
-    "mocha-junit-reporter": "^2.2.1"
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

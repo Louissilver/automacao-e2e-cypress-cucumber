@@ -12,6 +12,7 @@ cypress/test-results/
 .cache/
 cypress/screenshots/
 cypress/videos/
+cypress/reports/
 
 # Environment files
 .env

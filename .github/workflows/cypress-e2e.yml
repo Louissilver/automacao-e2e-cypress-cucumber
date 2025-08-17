@@ -54,6 +54,9 @@ jobs:
             npm run run:desktop
           fi
 
+      - name: Generate report
+        run: npm run report
+
       # Artefatos para debug
       - name: Upload videos
         if: always()
@@ -95,4 +98,13 @@ jobs:
             cypress/test-results
             reports
             results
+          if-no-files-found: ignore
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report-${{ env.TARGET }}
+          path: |
+            reports/*.html
           if-no-files-found: ignore
