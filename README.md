@@ -1,8 +1,15 @@
 # Automação E2E com Cypress
 
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Louissilver/automacao-e2e-cypress-cucumber/cypress-e2e.yml?branch=main)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/actions)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/stargazers)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber)
+[![License](https://img.shields.io/badge/license-ISC-blue.svg)](LICENSE)
+
 ## Índice
 
-- [Tags & Badges](#tags--badges)
 - [Configuração de Ambiente (.env)](#configuração-de-ambiente-env)
 - [Principais Pacotes](#principais-pacotes)
 - [Execução em Pipeline (CI/CD)](#execução-em-pipeline-cicd)
@@ -12,15 +19,6 @@
 - [Como Executar os Testes](#como-executar-os-testes)
 - [Como Usar](#como-usar)
 - [Adaptação](#adaptação)
-
-## Tags & Badges
-
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Louissilver/automacao-e2e-cypress-cucumber/cypress-e2e.yml?branch=main)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/actions)
-[![GitHub last commit](https://img.shields.io/github/last-commit/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/commits/main)
-[![GitHub issues](https://img.shields.io/github/issues/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/network/members)
-[![GitHub stars](https://img.shields.io/github/stars/Louissilver/automacao-e2e-cypress-cucumber?style=social)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/stargazers)
-[![License](https://img.shields.io/github/license/Louissilver/automacao-e2e-cypress-cucumber)](https://github.com/Louissilver/automacao-e2e-cypress-cucumber/blob/main/LICENSE)
 
 ## Configuração de Ambiente (.env)
 
